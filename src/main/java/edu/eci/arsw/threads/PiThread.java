@@ -12,24 +12,33 @@ import edu.eci.arsw.math.PiDigits;
  *
  * @author 2125509
  */
-public class PiThread extends Thread{
+public  class PiThread extends Thread {
 
-    
-    public static int A;
-    public static int B;
-    public static String cadena="";
-        
-    public PiThread(int a, int b){
-        this.A = a;
-        this.B = b;
+    public  int start;
+    public  int count;
+    public  int startp;
+
+    public PiThread(int start, int count,int startp) {
+        this.start = start;
+        this.startp = startp;
+        this.count = count;
     }
-    
-    
-    
+
     @Override
     public void run() {
-       
+        double sum = 0;
+        for (int i = 0; i < count; i++) {
+            if (i % PiDigits.DigitsPerSum == 0) {
+                sum = 4 * PiDigits.sum(1, start)
+                        - 2 * PiDigits.sum(4, start)
+                        - PiDigits.sum(5, start)
+                        - PiDigits.sum(6, start);
+
+                start += PiDigits.DigitsPerSum;
+            }
+
+            sum = 16 * (sum - Math.floor(sum));
+            PiDigits.digits[-startp+i+start] = (byte) sum;
+        }
     }
-    
-  
 }

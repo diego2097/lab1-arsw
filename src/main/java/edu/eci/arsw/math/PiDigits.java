@@ -12,18 +12,20 @@ import java.util.ArrayList;
 ///  </summary>
 public class PiDigits {
 
-    private static int DigitsPerSum = 8;
-    private static double Epsilon = 1e-17;
-
+    public static int DigitsPerSum = 8;
+    public static double Epsilon = 1e-17;
+    public static byte[] digits;
     
     /**
      * Returns a range of hexadecimal digits of pi.
      * @param start The starting location of the range.
      * @param count The number of digits to return
+     * @param n
      * @return An array containing the hexadecimal digits.
      */
-    public static byte[] getDigits(int start, int count,int n) {
-        ArrayList<Thread> threads=new ArrayList<>();
+    public static byte[]  getDigits(int start, int count,int n) throws InterruptedException {
+        ArrayList<PiThread> threads=new ArrayList<>();
+        digits = new byte[count];
         if (start < 0) {
             throw new RuntimeException("Invalid Interval");
         }
@@ -31,33 +33,22 @@ public class PiDigits {
         if (count < 0) {
             throw new RuntimeException("Invalid Interval");
         }
-        int cabeza=0;
-        int cola=count/n;
+        int cabeza=start;
         for(int i=0;i<n;i++){
-            threads.add(new PiThread(cabeza,cola));
-            cabeza=cola;
-            cola+=count/n;
+            System.out.println(cabeza+" "+(cabeza+(count/n)-1));  
+            threads.add(new PiThread(cabeza,2,start));
+            cabeza=cabeza+(count/n);
+           
         }
         
-
-        byte[] digits = new byte[count];
-        double sum = 0;
-
-        for (int i = 0; i < count; i++) {
-            if (i % DigitsPerSum == 0) {
-                sum = 4 * sum(1, start)
-                        - 2 * sum(4, start)
-                        - sum(5, start)
-                        - sum(6, start);
-
-                start += DigitsPerSum;
-            }
-
-            sum = 16 * (sum - Math.floor(sum));
-            digits[i] = (byte) sum;
+        for(PiThread t: threads){
+           t.start();
         }
-
+        for(PiThread t: threads){
+           t.join();
+        }
         return digits;
+
     }
 
     /// <summary>
@@ -66,7 +57,7 @@ public class PiDigits {
     /// <param name="m"></param>
     /// <param name="n"></param>
     /// <returns></returns>
-    private static double sum(int m, int n) {
+    public static double sum(int m, int n) {
         double sum = 0;
         int d = m;
         int power = n;
@@ -97,7 +88,7 @@ public class PiDigits {
     /// <param name="p"></param>
     /// <param name="m"></param>
     /// <returns></returns>
-    private static int hexExponentModulo(int p, int m) {
+    public static int hexExponentModulo(int p, int m) {
         int power = 1;
         while (power * 2 <= p) {
             power *= 2;
