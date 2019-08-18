@@ -17,14 +17,18 @@ public  class PiThread extends Thread {
     public  int start;
     public  int count;
     public  int startp;
+    public  int startpp;
 
     public PiThread(int start, int count,int startp) {
+        this.startpp = start;
         this.start = start;
+        
         this.startp = startp;
         this.count = count;
+        
     }
 
-    @Override
+    
     public void run() {
         double sum = 0;
         for (int i = 0; i < count; i++) {
@@ -38,7 +42,8 @@ public  class PiThread extends Thread {
             }
 
             sum = 16 * (sum - Math.floor(sum));
-            PiDigits.digits[-startp+i+start] = (byte) sum;
+           
+            PiDigits.digits[startpp-startp+i] = (byte) sum;
         }
     }
 }

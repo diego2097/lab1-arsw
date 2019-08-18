@@ -1,7 +1,6 @@
 package edu.eci.arsw.math;
 
 ///  <summary>
-
 import edu.eci.arsw.threads.PiThread;
 import java.util.ArrayList;
 
@@ -15,40 +14,44 @@ public class PiDigits {
     public static int DigitsPerSum = 8;
     public static double Epsilon = 1e-17;
     public static byte[] digits;
-    
+
     /**
      * Returns a range of hexadecimal digits of pi.
+     *
      * @param start The starting location of the range.
      * @param count The number of digits to return
      * @param n
      * @return An array containing the hexadecimal digits.
      */
-    public static byte[]  getDigits(int start, int count,int n) throws InterruptedException {
-        ArrayList<PiThread> threads=new ArrayList<>();
+    public static byte[] getDigits(int start, int count, int threads) throws InterruptedException {
+        ArrayList<PiThread> Arrythreads = new ArrayList<>();
         digits = new byte[count];
         if (start < 0) {
             throw new RuntimeException("Invalid Interval");
         }
-
         if (count < 0) {
             throw new RuntimeException("Invalid Interval");
         }
-        int cabeza=start;
-        for(int i=0;i<n;i++){
-            System.out.println(cabeza+" "+(cabeza+(count/n)-1));  
-            threads.add(new PiThread(cabeza,2,start));
-            cabeza=cabeza+(count/n);
-           
-        }
         
-        for(PiThread t: threads){
-           t.start();
+        int threadCount = count / threads;
+        int contThread = 0;
+        for (int i = 0; i < threads+1; i++) {
+            int threadStart = start + ((count / threads) * i);
+            if (( count- contThread)<threadCount) {
+                Arrythreads.add(new PiThread(threadStart, count-contThread, start));
+            } else {
+                Arrythreads.add(new PiThread(threadStart, threadCount, start));
+            }
+            contThread += threadCount;
         }
-        for(PiThread t: threads){
-           t.join();
+
+        for (PiThread t : Arrythreads) {
+            t.start();
+        }
+        for (PiThread t : Arrythreads) {
+            t.join();
         }
         return digits;
-
     }
 
     /// <summary>
