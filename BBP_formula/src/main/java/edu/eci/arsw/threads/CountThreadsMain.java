@@ -15,13 +15,13 @@ public class CountThreadsMain {
         Thread hilo1 = new Thread(new CountThread(0,99));
         Thread hilo2 = new Thread(new CountThread(99,199));
         Thread hilo3 = new Thread(new CountThread(200,299));
-        hilo1.run();
+        /*hilo1.run();
         hilo2.run();
-        hilo3.run();
+        hilo3.run();*/
         
-        /*hilo1.start();
+        hilo1.start();
         hilo2.start();
-        hilo3.start();*/
+        hilo3.start();
     }
     
 }

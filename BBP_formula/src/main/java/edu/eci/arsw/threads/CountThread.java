@@ -28,8 +28,5 @@ public class CountThread implements Runnable {
         for (int i=A;i<B;i++){
             System.out.println(i);
         }
-    }
-    
-    
-    
+    }   
 }

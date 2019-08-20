@@ -21,14 +21,12 @@ public  class PiThread extends Thread {
 
     public PiThread(int start, int count,int startp) {
         this.startpp = start;
-        this.start = start;
-        
+        this.start = start;    
         this.startp = startp;
         this.count = count;
         
     }
 
-    
     public void run() {
         double sum = 0;
         for (int i = 0; i < count; i++) {

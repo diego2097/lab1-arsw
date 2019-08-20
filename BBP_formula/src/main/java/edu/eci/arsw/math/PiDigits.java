@@ -34,8 +34,9 @@ public class PiDigits {
         }
         
         int threadCount = count / threads;
+       
         int contThread = 0;
-        for (int i = 0; i < threads+1; i++) {
+        for (int i = 0; i < threads+2; i++) {
             int threadStart = start + ((count / threads) * i);
             if (( count- contThread)<threadCount) {
                 Arrythreads.add(new PiThread(threadStart, count-contThread, start));

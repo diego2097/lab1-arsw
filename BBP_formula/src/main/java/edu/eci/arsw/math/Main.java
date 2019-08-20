@@ -14,8 +14,12 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String a[]) throws InterruptedException {
-        //System.out.println(bytesToHex(PiDigits.getDigits(1, 100,10)));
-        System.out.println(bytesToHex(PiDigits.getDigits(1, 1000000,500)));
+        long startTime = System.nanoTime();
+        
+        bytesToHex(PiDigits.getDigits(0, 10000,5));
+        
+        long endTime = System.nanoTime() - startTime;
+        System.out.println(endTime);
         
     }
 
