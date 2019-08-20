@@ -2,7 +2,7 @@
 
 ## Contenido 
 - [BBP Formula](https://github.com/diego2097/lab1-arsw/tree/master/BBP_formula)
-- [Dogs race case](https://github.com/diego2097/lab1-arsw/tree/master/Dogs_race_case)
+- [Dogs race case](https://github.com/diego2097/lab1-arsw/tree/master/Dogs%20race%20case)
 
 ## Construido en
 - Maven: una herramienta de software para la gestión y construcción de proyectos java
