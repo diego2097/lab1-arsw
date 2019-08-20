@@ -55,7 +55,48 @@ public void calcular() throws InterruptedException {
 ```   
 
 # Part II 
-
-
+resultados incorrectos: 
+```java
+	can.winnerDialog(reg.getGanador(),reg.getUltimaPosicionAlcanzada() - 1); 
+        System.out.println("El ganador fue:" + reg.getGanador());              
+```   
+la región critica que encontramos se muestra en la parte inferior se debe a que los hilos cuando se estan ejecutando intentar acceder el mismo atributo reg de la case MainCanodromo dicha region se encuentra en la case Galgo En el metodo Corra():
+ 
+```java
+    	if (paso == carril.size()) {						
+				carril.finish();
+				int ubicacion=regl.getUltimaPosicionAlcanzada();
+				regl.setUltimaPosicionAlcanzada(ubicacion+1);
+				System.out.println("El galgo "+this.getName()+" llego en la posicion "+ubicacion);
+				if (ubicacion==1){
+					regl.setGanador(this.getName());
+				}
+				
+			}
+```   
 
 # Part III
+correccion de resultados: 
+```java
+    	for (int i = 0; i < can.getNumCarriles(); i++) {
+                            try {
+                                galgos[i].join();
+                            } catch (InterruptedException ex) {
+                                Logger.getLogger(MainCanodromo.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+```
+correccion de region critica identificada en la parte 2:
+```java
+if (paso == carril.size()) {
+                    synchronized (regl) {
+                        carril.finish();
+                        int ubicacion = regl.getUltimaPosicionAlcanzada();
+                        regl.setUltimaPosicionAlcanzada(ubicacion + 1);
+                        System.out.println("El galgo " + this.getName() + " llego en la posicion " + ubicacion);
+                        if (ubicacion == 1) {
+                            regl.setGanador(this.getName());
+                        }
+                    }
+                }
+```
