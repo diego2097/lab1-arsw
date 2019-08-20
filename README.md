@@ -1,7 +1,7 @@
 # Laboratorio 1 - ARSW
 
 ## Contenido 
-- [BBP Formula](https://github.com/diego2097/lab1-arsw/tree/master/BBP_FORMULA)
+- [BBP Formula](https://github.com/diego2097/lab1-arsw/tree/master/BBP_formula)
 - [Dogs race case](https://github.com/diego2097/lab1-arsw/tree/master/Dogs_race_case)
 
 ## Construido en
