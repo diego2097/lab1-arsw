@@ -4,7 +4,8 @@
 
 
 ### 2: 
-
+creando y repartiendo el proceso en 3 threads: 
+´´´
 public static void main(String[] args) throws InterruptedException {
         PrimeFinderThread pft = new PrimeFinderThread(0, 10000000);
         PrimeFinderThread pft2 = new PrimeFinderThread(10000001, 20000000);
@@ -12,7 +13,7 @@ public static void main(String[] args) throws InterruptedException {
         pft.start();
         pft2.start();
         pft3.start();
-
+´´
 
 ### 3:
 
