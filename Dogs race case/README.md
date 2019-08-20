@@ -5,7 +5,7 @@
 
 ### 2: 
 creando y repartiendo el proceso en 3 threads: 
-```
+```java
 public static void main(String[] args) throws InterruptedException {
         PrimeFinderThread pft = new PrimeFinderThread(0, 10000000);
         PrimeFinderThread pft2 = new PrimeFinderThread(10000001, 20000000);
@@ -22,7 +22,7 @@ números primos calculados y la cantidad en total.
 Para la lectura de la tecla Enter se realizó mediante la clase scaner, al darle Enter el programa finalizara su ejecución.
 
 
-```
+```java
 public void calcular() throws InterruptedException {
         long inicio = System.currentTimeMillis();
         thread1.start();
