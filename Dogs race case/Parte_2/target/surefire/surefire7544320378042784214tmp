@@ -1,0 +1,8 @@
+#surefire
+#Tue Aug 20 11:33:42 COT 2019
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=C\:\\Users\\2125509\\Downloads\\Part_2\\Part_2
+file.encoding=UTF-8
+localRepository=C\:\\Users\\2125509\\.m2\\repository
+basedir=C\:\\Users\\2125509\\Downloads\\Part_2\\Part_2
+test=CanodromoTest
