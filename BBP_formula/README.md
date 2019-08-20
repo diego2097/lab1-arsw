@@ -67,12 +67,13 @@ Al utilizar un solo hilo el programa nunca termina de calcular el millon de digi
 
 ## Tiempos de ejecucion 
 
-Un solo hilo: 517.624 segundos 
-Tantos hilos como nucleos: 149.386 segundos
-Tantos hilos como el doble de nucleos: 60.504 segundos 
-200 hilos: 51.626 segundos 
-500 hilos: 53.219 segundos 
+- Un solo hilo: 517.624 segundos 
+- Tantos hilos como nucleos: 149.386 segundos 
+- Tantos hilos como el doble de nucleos: 60.504 segundos 
+- 200 hilos: 51.626 segundos 
+- 500 hilos: 53.219 segundos
 
+-------------
 
 
 1. la diferencia es bastante minima, pero la razon por la que no se cumple la ley de Amdahls puede ser por la memoria que consume una mayor cantidad de hilos. ya que se debe guardar el estado de cada hilo.  
