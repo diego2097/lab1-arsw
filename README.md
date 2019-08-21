@@ -8,8 +8,8 @@
 - Maven: una herramienta de software para la gestión y construcción de proyectos java
 
 ## Autor  
-- Diego Alejandro Corredor Tolosa 
-- Luis Fernando Pizza Gamba
+- Diego Alejandro Corredor Tolosa https://github.com/diego2097
+- Luis Fernando Pizza Gamba https://github.com/luis572
 
 ## Licencia 
 - GNU General Public License v3.0
