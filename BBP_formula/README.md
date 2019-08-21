@@ -80,5 +80,5 @@ Al utilizar un solo hilo el programa nunca termina de calcular el millon de digi
 
 2. Al utilizar el doble de hilos, el tiempo de ejecucion es significativamente menor. 89 segundos menor. se puede deber a que el costo en memoria no es tan alto al aumentar al doble la cantidad de hilos. 
 
-3. 
+
  
