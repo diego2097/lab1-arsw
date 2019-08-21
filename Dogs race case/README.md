@@ -179,3 +179,42 @@ En la clase MainCanodromo:
         }
         );
 ```
+#### Probando Pausa:  
+```java
+ @Test
+    public void pauseTest() {
+        Canodromo can = new Canodromo(15, 100);
+        ArrayList<Galgo> galgos = new ArrayList<>();
+        RegistroLlegada reg = new RegistroLlegada();
+        for (int i = 0; i < can.getNumCarriles(); i++) {
+            galgos.add(new Galgo(can.getCarril(i), Integer.toString(i), reg));
+            galgos.get(i).start();
+        }
+        ArrayList<Integer> pasos = new ArrayList<>();
+        for (int i = 0; i < can.getNumCarriles(); i++) {
+            galgos.get(i).setPausa(true);
+            pasos.add(galgos.get(i).getPaso());
+        }
+
+        boolean condicion = true;
+        int contador = 0;
+        while (condicion) {
+            contador++;
+            if (contador == 500) {
+                condicion = false;
+            }
+        }
+        System.out.println("asd");
+        for (int i = 0; i < can.getNumCarriles(); i++) {
+            assertEquals((int) pasos.get(i), (int) galgos.get(i).getPaso());
+        }
+         System.out.println("asdasd");
+        for (int i = 0; i < can.getNumCarriles(); i++) {
+                galgos.get(i).stop();
+    
+        }
+        assertTrue(true);
+
+    }
+```
+
