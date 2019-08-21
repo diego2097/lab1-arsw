@@ -1,9 +1,7 @@
 # Part I
 ### 1: 
 Acontinuacion se presentara el comportamiento del procesador y sus nucleos corriendo el programa con solo un hilo: 
-![alt text](https://github.com/diego2097/lab1-arsw/blob/master/BBP_formula/img/uno.jpg) 
-
-
+![alt text](https://github.com/diego2097/lab1-arsw/blob/master/BBP_formula/img/tres.jpg) 
 ### 2: 
 creando y repartiendo el proceso en 3 threads: 
 ```java
@@ -18,7 +16,7 @@ public static void main(String[] args) throws InterruptedException {
 		
 ``` 
 Acontinuacion se presentara el comportamiento del procesador y sus nucleos corriendo el programa con tres hilos:
-![alt text](https://github.com/diego2097/lab1-arsw/blob/master/BBP_formula/img/tres.jpg) 
+![alt text](https://github.com/diego2097/lab1-arsw/blob/master/BBP_formula/img/uno.jpg) 
 ### 3:
 la espera de 5 segundos se realizó mediante el metodo currentTimeMillis() de la clase system. realizando la diferencia entre el tiempo en el que se comenzó a ejecutar y el tiempo de ejecución para calcular los 5 segundos, pasado dicho tiempo mostrara un listado de los 
 números primos calculados y la cantidad en total.
@@ -146,8 +144,9 @@ public void corra() throws InterruptedException {
         pausa = p;
     }
 ```
-```java
 En la clase MainCanodromo: 
+```java
+
         can.setStopAction(
                 new ActionListener() {
             @Override
