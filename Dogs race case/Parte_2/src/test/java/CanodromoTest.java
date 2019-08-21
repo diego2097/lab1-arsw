@@ -69,14 +69,12 @@ public class CanodromoTest {
                 condicion = false;
             }
         }
-        System.out.println("asd");
         for (int i = 0; i < can.getNumCarriles(); i++) {
             assertEquals((int) pasos.get(i), (int) galgos.get(i).getPaso());
         }
-         System.out.println("asdasd");
+         
         for (int i = 0; i < can.getNumCarriles(); i++) {
                 galgos.get(i).stop();
-    
         }
         assertTrue(true);
 
