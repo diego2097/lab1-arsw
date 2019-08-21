@@ -54,7 +54,7 @@ public class PrimeFinderKey {
             entrada = scanner.nextLine();
             System.out.println(entrada);
         } while (!entrada.equals(""));
-        reanudarCalculos();
+        //reanudarCalculos();
         terminar();
         System.exit(0);
     }
